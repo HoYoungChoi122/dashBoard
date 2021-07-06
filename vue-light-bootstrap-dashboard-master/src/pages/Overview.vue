@@ -152,7 +152,7 @@
                   <button type="button" class="btn-simple btn btn-xs btn-info" v-tooltip.top-center="editTooltip">
                     <i class="fa fa-edit"></i>
                   </button>
-                  <button type="button" class="btn-simple btn btn-xs btn-danger" v-tooltip.top-center="deleteTooltip">
+                  <button type="button" @click="deleteRow" class="btn-simple btn btn-xs btn-danger" v-tooltip.top-center="deleteTooltip">
                     <i class="fa fa-times"></i>
                   </button>
                 </td>
@@ -267,6 +267,13 @@
           ]
         }
       }
+    },
+    methods : {
+      deleteRow(){
+        this.tableData.data = this.tableData.data.filter(c => { return !c.checked})
+      }
+
+
     }
   }
 </script>
